@@ -1,4 +1,4 @@
-{% set version = "1.0.4" %}
+{% set version = "1.0.5" %}
 
 {% set posix = 'm2-' if win else '' %}
 {% set native = 'm2w64-' if win else '' %}
@@ -11,7 +11,7 @@ source:
   url:
     - {{ cran_mirror }}/src/contrib/leidenAlg_{{ version }}.tar.gz
     - {{ cran_mirror }}/src/contrib/Archive/leidenAlg/leidenAlg_{{ version }}.tar.gz
-  sha256: a6dd62475c335c7cfaafaccad37da4336b8b09402d889e7508d0c57e153a0a3a
+  sha256: 5625f5960c85acd5b61677bc9cf0244976b0de532cba4afdd56f245d75fe26fd
 
 build:
   merge_build_host: true  # [win]
