@@ -15,7 +15,7 @@ source:
 
 build:
   merge_build_host: true  # [win]
-  number: 0
+  number: 1
   # This is required to make R link correctly on Linux.
   rpaths:
     - lib/R/lib/
