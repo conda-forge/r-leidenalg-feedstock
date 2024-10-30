@@ -1,5 +1,4 @@
 {% set version = "1.1.4" %}
-
 {% set posix = 'm2-' if win else '' %}
 
 package:
@@ -11,6 +10,8 @@ source:
     - {{ cran_mirror }}/src/contrib/leidenAlg_{{ version }}.tar.gz
     - {{ cran_mirror }}/src/contrib/Archive/leidenAlg/leidenAlg_{{ version }}.tar.gz
   sha256: 2dea1e561ff9f2b429adf5f4ccce2fab824ca3e02800168f160880ad2a44c7d6
+  patches:
+    - patches/0001-use-AR-variable.patch
 
 build:
   number: 1
@@ -18,6 +19,10 @@ build:
   rpaths:
     - lib/R/lib/
     - lib/
+  missing_dso_whitelist:
+    - '*/R.dll'        # [win]
+    - '*/Rblas.dll'    # [win]
+    - '*/Rlapack.dll'  # [win]
 
 # Suggests: pbapply, testthat (>= 3.1.0)
 requirements:
@@ -33,7 +38,6 @@ requirements:
     - {{ posix }}sed               # [win]
     - {{ posix }}coreutils         # [win]
     - {{ posix }}zip               # [win]
-
   host:
     - r-base
     - r-matrix
@@ -43,7 +47,6 @@ requirements:
     - r-rcppeigen
     - r-igraph
     - r-sccore
-
   run:
     - r-base
     - r-matrix
