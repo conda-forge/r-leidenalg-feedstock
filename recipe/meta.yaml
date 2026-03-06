@@ -1,4 +1,4 @@
-{% set version = "1.1.5" %}
+{% set version = "1.1.6" %}
 {% set posix = 'm2-' if win else '' %}
 
 package:
@@ -9,12 +9,12 @@ source:
   url:
     - {{ cran_mirror }}/src/contrib/leidenAlg_{{ version }}.tar.gz
     - {{ cran_mirror }}/src/contrib/Archive/leidenAlg/leidenAlg_{{ version }}.tar.gz
-  sha256: 02fc96bc2e3e7b32aa6a27096f98b29763e210b86c5a60f87c5440b29c3a23cb
+  sha256: 5c6c738da6a1e212783abe6d92e4af1d4b48fad01a5cb4582ccd2ef4bcd04fdd
   patches:
     - patches/0001-use-AR-variable.patch
 
 build:
-  number: 1
+  number: 0
   rpaths:
     - lib/R/lib/
     - lib/
